@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pictures Properties</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            width: 100vw;
+            height: 100vh;
+        }
+        .container .heading{
+            text-align: center;
+            font-size: 42px;
+            padding: 10px;
+        }
+        .main-container{
+            /* border: solid orange; */
+            display: flex;
+            width: 90vw;
+            height: 90%;
+            margin: auto;
+            filter: drop-shadow(2px 4px 9px gray);
+        }
+        .main-container .properties{
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: column;
+            margin: auto;
+            height: 100%;
+            /* overflow: hidden; */
+        }
+        button{
+            display: block;
+            padding: 5px;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: all ease 1s;
+        }
+        button:hover{
+            background-color: brown;
+            color: white;
+            font-weight: bolder;
+            transform: scale(1.1);
+        }
+        .container .image{
+            width: 750px;
+            height: 500px;
+            margin: auto;
+        }
+        .image img{
+            height: 100%;
+            width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="heading">Image Filter CSS Propterties</div>
+        <div class="main-container">
+        <div class="properties">
+            <button class="button" id="button1">none</button>
+            <button class="button" id="button2">blur(10px)</button>
+            <button class="button" id="button3">brightness(200%)</button>
+            <button class="button" id="button4">drop-shadow(8px 8px 10px gray)</button>
+            <button class="button" id="button5">grayscale(100%)</button>
+            <button class="button" id="button6">hue-rotate(90deg)</button>
+            <button class="button" id="button7">invert(100%)</button>
+            <button class="button" id="button8">opacity(30%)</button>
+            <button class="button" id="button9">saturate(8)</button>
+            <button class="button" id="button10">sepia(100%)</button>
+            <button class="button" id="buttons11">contrast(200%)</button>
+            <button class="button" id="buttons12">contrast(200%) brightness(150%)</button>
+        </div>
+        <div class="image">
+            <img src="nature-beauty.jpg" alt="Taj Mahal image as a demo" id="image">
+        </div>
+    </div>
+    </div>
+    <script>
+        const img = document.getElementById("image");
+        const button = document.querySelectorAll(".button");
+        for(let i=0; i<=button.length; i++){
+            button[i].addEventListener("click", function(){
+            if(i == 3){
+                    img.src="removebg.png";
+                    img.style.filter = button[i].innerHTML;
+                }
+                else{
+                    img.src="nature-beauty.jpg";
+                img.style.filter = button[i].innerHTML;
+            }
+            });
+        }
+    </script>
+</body>
+</html>
